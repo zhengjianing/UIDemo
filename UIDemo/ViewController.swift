@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     var scrollView: UIScrollView!
     var heroImageView: HeroImageView!
     var infoView: InfoView!
+    var stackView: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,10 +25,18 @@ class ViewController: UIViewController {
 
         heroImageView = HeroImageView(image: UIImage(named: "dog.jpg"))
         infoView = InfoView()
+        stackView = CustomStackView()
         
         scrollView.addSubview(heroImageView)
         scrollView.addSubview(infoView)
+        scrollView.addSubview(stackView)
+        
         layoutSubviews()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("hhh")
     }
     
     private func layoutSubviews() {
@@ -48,8 +57,12 @@ class ViewController: UIViewController {
         infoView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20).isActive = true
         infoView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20).isActive = true
         infoView.topAnchor.constraint(equalTo: heroImageView.bottomAnchor, constant: 20).isActive = true
-        infoView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
-        infoView.heightAnchor.constraint(equalToConstant: 200)
+        
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20).isActive = true
+        stackView.topAnchor.constraint(equalTo: infoView.bottomAnchor, constant: 20).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
     }
     
 }

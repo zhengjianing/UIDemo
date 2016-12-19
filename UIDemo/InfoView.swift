@@ -27,7 +27,7 @@ class InfoView: UIView {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func layoutSubviews() {
@@ -45,6 +45,7 @@ class InfoView: UIView {
         detailButton.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         detailButton.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         detailButton.topAnchor.constraint(equalTo: addressLabel.bottomAnchor, constant: 20).isActive = true
+        detailButton.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
     }
     
     private func createNameLabel() -> UILabel {
@@ -71,7 +72,6 @@ class InfoView: UIView {
         detailButton.layer.borderColor = UIColor.blue.cgColor
         detailButton.layer.cornerRadius = 3.0
         detailButton.contentEdgeInsets = UIEdgeInsetsMake(12.0, 20.0, 12.0, 20.0)
-        
         return detailButton
     }
 }

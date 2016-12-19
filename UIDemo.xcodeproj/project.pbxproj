@@ -15,6 +15,8 @@
 		94F600751E077E8300580A78 /* dog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 94F600741E077E8300580A78 /* dog.jpg */; };
 		94F600771E07825E00580A78 /* HeroImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F600761E07825E00580A78 /* HeroImageView.swift */; };
 		94F600791E0786E500580A78 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F600781E0786E500580A78 /* InfoView.swift */; };
+		94F6007D1E07A72600580A78 /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F6007C1E07A72600580A78 /* ItemView.swift */; };
+		94F6007F1E07C11700580A78 /* CustomStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F6007E1E07C11700580A78 /* CustomStackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		94F600741E077E8300580A78 /* dog.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dog.jpg; sourceTree = "<group>"; };
 		94F600761E07825E00580A78 /* HeroImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroImageView.swift; sourceTree = "<group>"; };
 		94F600781E0786E500580A78 /* InfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		94F6007C1E07A72600580A78 /* ItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
+		94F6007E1E07C11700580A78 /* CustomStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomStackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +81,8 @@
 			children = (
 				94F600761E07825E00580A78 /* HeroImageView.swift */,
 				94F600781E0786E500580A78 /* InfoView.swift */,
+				94F6007C1E07A72600580A78 /* ItemView.swift */,
+				94F6007E1E07C11700580A78 /* CustomStackView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -154,6 +160,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94F6007F1E07C11700580A78 /* CustomStackView.swift in Sources */,
+				94F6007D1E07A72600580A78 /* ItemView.swift in Sources */,
 				94F600791E0786E500580A78 /* InfoView.swift in Sources */,
 				94F600641E077A2900580A78 /* ViewController.swift in Sources */,
 				94F600621E077A2900580A78 /* AppDelegate.swift in Sources */,
