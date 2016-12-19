@@ -25,15 +25,20 @@ class ItemView: UIView {
         
         addSubview(keyLabel)
         addSubview(valueLabel)
+        
+        setUpConstraints()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
+    func configItemViewWithItem(item: (String, String)) {
+        keyLabel.text = item.0
+        valueLabel.text = item.1
+    }
+    
+    private func setUpConstraints() {
         keyLabel.translatesAutoresizingMaskIntoConstraints = false
         valueLabel.translatesAutoresizingMaskIntoConstraints = false
         
@@ -48,9 +53,5 @@ class ItemView: UIView {
         valueLabel.leadingAnchor.constraint(equalTo: keyLabel.trailingAnchor).isActive = true
         valueLabel.widthAnchor.constraint(equalTo: keyLabel.widthAnchor).isActive = true        
     }
-    
-    func configItemViewWithItem(item: (String, String)) {
-        keyLabel.text = item.0
-        valueLabel.text = item.1
-    }
+   
 }

@@ -14,6 +14,9 @@ class InfoView: UIView {
     var addressLabel: UILabel!
     var detailButton: UIButton!
     
+    fileprivate var compactConstraints = [NSLayoutConstraint]()
+    fileprivate var regularConstraints = [NSLayoutConstraint]()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -24,6 +27,8 @@ class InfoView: UIView {
         addSubview(nameLabel)
         addSubview(addressLabel)
         addSubview(detailButton)
+        
+        setUpConstraints()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -36,22 +41,42 @@ class InfoView: UIView {
         detailButton.setTitle(viewModel.buttonTitle, for: .normal)
     }
     
-    override func layoutSubviews() {
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        if traitCollection.horizontalSizeClass == .compact {
+            NSLayoutConstraint.deactivate(regularConstraints)
+            NSLayoutConstraint.activate(compactConstraints)
+        } else {
+            NSLayoutConstraint.deactivate(compactConstraints)
+            NSLayoutConstraint.activate(regularConstraints)
+        }
+    }
+    
+    private func setUpConstraints() {
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        nameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         nameLabel.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
 
         addressLabel.translatesAutoresizingMaskIntoConstraints = false
         addressLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        addressLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         addressLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 10).isActive = true
         
         detailButton.translatesAutoresizingMaskIntoConstraints = false
-        detailButton.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         detailButton.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        detailButton.topAnchor.constraint(equalTo: addressLabel.bottomAnchor, constant: 20).isActive = true
-        detailButton.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        
+        compactConstraints.append(nameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor))
+        compactConstraints.append(addressLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor))
+        compactConstraints.append(detailButton.leadingAnchor.constraint(equalTo: self.leadingAnchor))
+        compactConstraints.append(detailButton.leadingAnchor.constraint(equalTo: self.leadingAnchor))
+        compactConstraints.append(detailButton.topAnchor.constraint(equalTo: addressLabel.bottomAnchor, constant: 20))
+        compactConstraints.append(detailButton.bottomAnchor.constraint(equalTo: self.bottomAnchor))
+        
+        regularConstraints.append(nameLabel.trailingAnchor.constraint(equalTo: detailButton.leadingAnchor))
+        regularConstraints.append(addressLabel.widthAnchor.constraint(equalTo: nameLabel.widthAnchor))
+        regularConstraints.append(addressLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor))
+        regularConstraints.append(detailButton.topAnchor.constraint(equalTo: self.topAnchor))
+        regularConstraints.append(detailButton.widthAnchor.constraint(equalToConstant: 150))
     }
     
     private func createNameLabel() -> UILabel {

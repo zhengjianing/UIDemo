@@ -35,10 +35,10 @@ class ViewController: UIViewController {
         
         infoView.configCellWithViewModel(viewModel: viewModel)
         stackView.configCellWithViewModel(viewModel: viewModel)
-        layoutSubviews()
+        setUpConstraints()
     }
     
-    private func layoutSubviews() {
+    private func setUpConstraints() {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
