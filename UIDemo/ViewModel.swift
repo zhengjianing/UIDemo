@@ -19,7 +19,7 @@ struct ViewModel {
     }
     
     var address: String {
-        return "This is an address"
+        return "Multiple lines address. Multiple lines address. Multiple lines address. Multiple lines address. Multiple lines address"
     }
     
     var buttonTitle: String {

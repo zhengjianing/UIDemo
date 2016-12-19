@@ -88,6 +88,7 @@ class InfoView: UIView {
     private func createAddressLabel() -> UILabel {
         let addressLabel = UILabel()
         addressLabel.font = UIFont.systemFont(ofSize: 16)
+        addressLabel.numberOfLines = 0
         return addressLabel
     }
     
