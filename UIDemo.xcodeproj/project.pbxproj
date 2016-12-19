@@ -54,6 +54,7 @@
 		94F600601E077A2900580A78 /* UIDemo */ = {
 			isa = PBXGroup;
 			children = (
+				94F600731E077AD500580A78 /* Views */,
 				94F600611E077A2900580A78 /* AppDelegate.swift */,
 				94F600631E077A2900580A78 /* ViewController.swift */,
 				94F600651E077A2900580A78 /* Main.storyboard */,
@@ -62,6 +63,13 @@
 				94F6006D1E077A2900580A78 /* Info.plist */,
 			);
 			path = UIDemo;
+			sourceTree = "<group>";
+		};
+		94F600731E077AD500580A78 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
