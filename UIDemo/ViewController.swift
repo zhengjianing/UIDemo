@@ -13,17 +13,19 @@ class ViewController: UIViewController {
     var scrollView: UIScrollView!
     var heroImageView: HeroImageView!
     var infoView: InfoView!
-    var stackView: UIStackView!
+    var stackView: CustomStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         
+        let viewModel = ViewModel()
+        
         scrollView = UIScrollView()
         scrollView.alwaysBounceVertical = true
         view.addSubview(scrollView)
 
-        heroImageView = HeroImageView(image: UIImage(named: "dog.jpg"))
+        heroImageView = HeroImageView(image: UIImage(named: viewModel.imageName))
         infoView = InfoView()
         stackView = CustomStackView()
         
@@ -31,12 +33,9 @@ class ViewController: UIViewController {
         scrollView.addSubview(infoView)
         scrollView.addSubview(stackView)
         
+        infoView.configCellWithViewModel(viewModel: viewModel)
+        stackView.configCellWithViewModel(viewModel: viewModel)
         layoutSubviews()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        print("hhh")
     }
     
     private func layoutSubviews() {

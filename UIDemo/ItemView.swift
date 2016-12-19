@@ -18,10 +18,10 @@ class ItemView: UIView {
         
         keyLabel = UILabel()
         keyLabel.textColor = UIColor.gray
-        keyLabel.font = UIFont.systemFont(ofSize: 14)
+        keyLabel.font = UIFont.systemFont(ofSize: 16)
         
         valueLabel = UILabel()
-        valueLabel.font = UIFont.systemFont(ofSize: 14)
+        valueLabel.font = UIFont.systemFont(ofSize: 16)
         
         addSubview(keyLabel)
         addSubview(valueLabel)
@@ -49,8 +49,8 @@ class ItemView: UIView {
         valueLabel.widthAnchor.constraint(equalTo: keyLabel.widthAnchor).isActive = true        
     }
     
-    func configUI(key: String, value: String) {
-        keyLabel.text = key
-        valueLabel.text = value
+    func configItemViewWithItem(item: (String, String)) {
+        keyLabel.text = item.0
+        valueLabel.text = item.1
     }
 }

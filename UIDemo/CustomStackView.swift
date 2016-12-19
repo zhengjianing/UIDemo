@@ -16,18 +16,17 @@ class CustomStackView: UIStackView {
         axis = .vertical
         distribution = .equalSpacing
         spacing = 5
-        
-        let itemView = ItemView()
-        itemView.configUI(key: "aa", value: "bb")
-        addArrangedSubview(itemView)
-        
-        let itemView2 = ItemView()
-        itemView2.configUI(key: "aa", value: "bb")
-        addArrangedSubview(itemView2)
     }
     
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func configCellWithViewModel(viewModel: ViewModel) {
+        for item in viewModel.stackViewContent {
+            let itemView = ItemView()
+            itemView.configItemViewWithItem(item: item)
+            addArrangedSubview(itemView)
+        }
+    }
 }

@@ -30,6 +30,12 @@ class InfoView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func configCellWithViewModel(viewModel: ViewModel) {
+        nameLabel.text = viewModel.name
+        addressLabel.text = viewModel.address
+        detailButton.setTitle(viewModel.buttonTitle, for: .normal)
+    }
+    
     override func layoutSubviews() {
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
@@ -50,21 +56,18 @@ class InfoView: UIView {
     
     private func createNameLabel() -> UILabel {
         let nameLabel = UILabel()
-        nameLabel.text = "name"
         nameLabel.font = UIFont.systemFont(ofSize: 20)
         return nameLabel
     }
     
     private func createAddressLabel() -> UILabel {
         let addressLabel = UILabel()
-        addressLabel.text = "This is an address"
-        addressLabel.font = UIFont.systemFont(ofSize: 14)
+        addressLabel.font = UIFont.systemFont(ofSize: 16)
         return addressLabel
     }
     
     private func createDetailButton() -> UIButton {
         let detailButton = UIButton()
-        detailButton.setTitle("Click Here", for: .normal)
         detailButton.setTitleColor(UIColor.blue, for: .normal)
         detailButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         
